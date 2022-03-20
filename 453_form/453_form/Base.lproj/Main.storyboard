@@ -22,7 +22,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="name_surname:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="qmU-u8-eQx"/>
+                                    <action selector="name_surname:" destination="BYZ-38-t0r" eventType="editingChanged" id="R96-Li-OdY"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Birth Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btR-M7-Poa">
@@ -59,7 +59,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="applied_vaccine:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="GEb-vY-T45"/>
+                                    <action selector="applied_vaccine:" destination="BYZ-38-t0r" eventType="editingChanged" id="ANc-Ow-ay3"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Any side effect after vaccination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nn-T3-esA">
@@ -75,7 +75,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="side_effect_vaccination:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="3Sc-0s-WGd"/>
+                                    <action selector="side_effect_vaccination:" destination="BYZ-38-t0r" eventType="editingChanged" id="YYG-ZL-ujv"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="middleTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ub-RO-Jo2">
@@ -104,7 +104,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="pcr_positive_cases_and_symproms:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="XUa-pG-QgO"/>
+                                    <action selector="pcr_positive_cases_and_symproms:" destination="BYZ-38-t0r" eventType="editingChanged" id="DFw-nz-C5f"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name - Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oby-yr-sl7">
@@ -127,7 +127,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="city:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="OOB-mo-eSh"/>
+                                    <action selector="city:" destination="BYZ-38-t0r" eventType="editingChanged" id="eU5-bx-8eW"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please fill text field." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6n-c7-9ZR" userLabel="gender_attr">
@@ -136,7 +136,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="gender:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Cge-fm-yHY"/>
+                                    <action selector="gender:" destination="BYZ-38-t0r" eventType="editingChanged" id="2Yb-oa-m5q"/>
                                 </connections>
                             </textField>
                         </subviews>

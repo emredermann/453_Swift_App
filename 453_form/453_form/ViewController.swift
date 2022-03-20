@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var add_button : UIButton!
     @IBOutlet weak var city_attr: UITextField!
     @IBOutlet weak var gender_attr: UITextField!
-    
+    var date_flag = false
 
     override func viewDidLoad() {
         
@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     func check_visibility(){
         if(name_surname_attr.hasText
            && applied_vaccine_attr.hasText
+           && date_flag
            && side_effect_vaccination_attr.hasText
            && pcr_positive_cases_and_symproms_attr.hasText
            && city_attr.hasText
@@ -41,16 +42,18 @@ class ViewController: UIViewController {
     }
     @IBAction func name_surname(_ sender: UITextField) {
         name_surname_attr = sender;
+        
+    print(birth_date_attr.isSelected)
         check_visibility();
         print(sender.text)
     }
     @IBAction   func birth_date(_ sender: UIDatePicker) {
         birth_date_attr = sender;
+        date_flag = true
         check_visibility();
     }
     @IBAction   func city(_ sender: UITextField) {
             city_attr = sender;
-        print(sender.text)
         check_visibility();
     }
     @IBAction    func gender(_ sender: UITextField) {
