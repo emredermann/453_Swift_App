@@ -15,62 +15,64 @@ class ViewController: UIViewController {
     @IBOutlet weak var side_effect_vaccination_attr : UITextField!
     @IBOutlet weak var pcr_positive_cases_and_symproms_attr : UITextField!
     @IBOutlet weak var add_button : UIButton!
-    @IBOutlet weak var gender_picker: UIPickerView!
-    @IBOutlet weak var city_picker: UIPickerView!
+    @IBOutlet weak var city_attr: UITextField!
+    @IBOutlet weak var gender_attr: UITextField!
     
-    
+
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        super.viewDidLoad();
         // Do any additional setup after loading the view.
-        add_button.isHidden = button_visibility();
+        birth_date_attr.datePickerMode = .date
+        add_button.isHidden = true;
     }
-    
-    func button_visibility() -> Bool{
-        print(name_surname_attr.text);
-        print(birth_date_attr.date.formatted());
-        print(applied_vaccine_attr.text);
-        print(side_effect_vaccination_attr.text);
-        print(pcr_positive_cases_and_symproms_attr.text);
-        
-        
-        
+    func check_visibility(){
         if(name_surname_attr.hasText
-           && birth_date_attr.isEnabled
            && applied_vaccine_attr.hasText
            && side_effect_vaccination_attr.hasText
            && pcr_positive_cases_and_symproms_attr.hasText
+           && city_attr.hasText
+           && gender_attr.hasText
           ){
-            return true;
+            add_button.isHidden = false;
         }else{
-            return false;
+            add_button.isHidden = true;
         }
     }
-    
-    
     @IBAction func name_surname(_ sender: UITextField) {
-        name_surname_attr.text = sender.text!;
+        name_surname_attr = sender;
+        check_visibility();
+        print(sender.text)
     }
-    
-    @IBAction func birth_date(_ sender: UIDatePicker) {
+    @IBAction   func birth_date(_ sender: UIDatePicker) {
         birth_date_attr = sender;
+        check_visibility();
     }
-    @IBAction func city(_ sender: UIPickerView) {
-        city_picker = sender;
-
+    @IBAction   func city(_ sender: UITextField) {
+            city_attr = sender;
+        print(sender.text)
+        check_visibility();
     }
-    @IBAction func gender(_ sender: UIPickerView) {
-        gender_picker = sender;
+    @IBAction    func gender(_ sender: UITextField) {
+        gender_attr = sender;
+        print(sender.text)
+        check_visibility();
     }
-    @IBAction func applied_vaccine(_ sender: UITextField) {
-        applied_vaccine_attr.text = sender.text!;
+    @IBAction  func applied_vaccine(_ sender: UITextField) {
+        applied_vaccine_attr = sender;
+        print(sender.text)
+        check_visibility();
     }
-    @IBAction func side_effect_vaccination(_ sender: UITextField) {
-        side_effect_vaccination_attr.text = sender.text!;
+    @IBAction  func side_effect_vaccination(_ sender: UITextField) {
+        side_effect_vaccination_attr = sender;
+        print(sender.text)
+        check_visibility();
     }
-    @IBAction func pcr_positive_cases_and_symproms(_ sender: UITextField) {
-        pcr_positive_cases_and_symproms_attr.text = sender.text!;
+    @IBAction  func pcr_positive_cases_and_symproms(_ sender: UITextField) {
+        pcr_positive_cases_and_symproms_attr = sender;
+        print(sender.text)
+        check_visibility();
     }
-    
     @IBAction func add_data(_ sender: UIButton) {
         let alertController = UIAlertController(
             title: "ILK iOS UYGULAMAM",
@@ -82,4 +84,3 @@ class ViewController: UIViewController {
            }
         
 }
-

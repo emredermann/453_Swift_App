@@ -59,7 +59,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="applied_vaccine:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="BaU-Wf-4Yp"/>
+                                    <action selector="applied_vaccine:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="GEb-vY-T45"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Any side effect after vaccination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nn-T3-esA">
@@ -75,7 +75,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="side_effect_vaccination:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="unF-h5-GzB"/>
+                                    <action selector="side_effect_vaccination:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="3Sc-0s-WGd"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="middleTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ub-RO-Jo2">
@@ -95,7 +95,7 @@
                                     <color key="baseBackgroundColor" systemColor="opaqueSeparatorColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="add_data:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6HK-CM-pNz"/>
+                                    <action selector="add_data:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x74-k5-tZN"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please fill text field." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fpX-vW-jbd">
@@ -104,21 +104,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="pcr_positive_cases_and_symproms:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="LWh-my-tGw"/>
+                                    <action selector="pcr_positive_cases_and_symproms:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="XUa-pG-QgO"/>
                                 </connections>
                             </textField>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UkU-xc-ema">
-                                <rect key="frame" x="43" y="178" width="274" height="51"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </datePicker>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7lb-7i-fyt">
-                                <rect key="frame" x="49" y="377" width="323" height="67"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6wy-Bs-kdt">
-                                <rect key="frame" x="43" y="261" width="329" height="79"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name - Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oby-yr-sl7">
                                 <rect key="frame" x="49" y="78" width="130" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -126,17 +114,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UkU-xc-ema">
+                                <rect key="frame" x="92" y="178" width="111" height="51"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="birth_date:" destination="BYZ-38-t0r" eventType="valueChanged" id="Vvq-lF-b53"/>
+                                </connections>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please fill text field." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5sd-IL-VV3" userLabel="city_attr">
+                                <rect key="frame" x="49" y="275" width="295" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="city:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="OOB-mo-eSh"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please fill text field." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6n-c7-9ZR" userLabel="gender_attr">
+                                <rect key="frame" x="43" y="384" width="295" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="gender:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Cge-fm-yHY"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="City_picker" destination="6wy-Bs-kdt" id="uG9-Kc-ZXn"/>
                         <outlet property="add_button" destination="Sjf-K0-N11" id="RQ2-ex-iEn"/>
                         <outlet property="applied_vaccine_attr" destination="m5A-2c-vb7" id="VyJ-g6-6Fh"/>
                         <outlet property="birth_date_attr" destination="UkU-xc-ema" id="OEm-pQ-OIt"/>
-                        <outlet property="gender_picker" destination="7lb-7i-fyt" id="L6A-L6-dex"/>
-                        <outlet property="name_surname_attr" destination="i4E-jz-uIi" id="Nls-Z6-HkE"/>
+                        <outlet property="city_attr" destination="5sd-IL-VV3" id="5xR-Uu-hqv"/>
+                        <outlet property="gender_attr" destination="m6n-c7-9ZR" id="i7a-5n-uas"/>
+                        <outlet property="name_surname_attr" destination="i4E-jz-uIi" id="rpj-LP-Ruu"/>
                         <outlet property="pcr_positive_cases_and_symproms_attr" destination="fpX-vW-jbd" id="5kF-yg-UK1"/>
                         <outlet property="side_effect_vaccination_attr" destination="PHj-7G-yHS" id="Iio-Eg-aIk"/>
                     </connections>
