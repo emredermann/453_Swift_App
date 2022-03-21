@@ -77,9 +77,10 @@ class ViewController: UIViewController {
         check_visibility();
     }
     @IBAction func add_data(_ sender: UIButton) {
+        var message_attr = "Your response has been taken "
         let alertController = UIAlertController(
-            title: "ILK iOS UYGULAMAM",
-            message: name_surname_attr.text,
+            title: name_surname_attr.text!,
+            message: message_attr,
             preferredStyle: UIAlertController.Style.alert)
                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default,
        handler: nil))
