@@ -53,15 +53,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please fill text field." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m5A-2c-vb7">
-                                <rect key="frame" x="43" y="489" width="295" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="applied_vaccine:" destination="BYZ-38-t0r" eventType="editingChanged" id="ANc-Ow-ay3"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Any side effect after vaccination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nn-T3-esA">
                                 <rect key="frame" x="49" y="551" width="245" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -121,34 +112,28 @@
                                     <action selector="birth_date:" destination="BYZ-38-t0r" eventType="valueChanged" id="Vvq-lF-b53"/>
                                 </connections>
                             </datePicker>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please fill text field." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5sd-IL-VV3" userLabel="city_attr">
-                                <rect key="frame" x="49" y="275" width="295" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="city:" destination="BYZ-38-t0r" eventType="editingChanged" id="eU5-bx-8eW"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please fill text field." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6n-c7-9ZR" userLabel="gender_attr">
-                                <rect key="frame" x="43" y="384" width="295" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="gender:" destination="BYZ-38-t0r" eventType="editingChanged" id="2Yb-oa-m5q"/>
-                                </connections>
-                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lKw-8b-Tka">
+                                <rect key="frame" x="35" y="384" width="331" height="60"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XCf-Js-1M2">
+                                <rect key="frame" x="37" y="481" width="331" height="60"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uNZ-3S-ktM">
+                                <rect key="frame" x="37" y="268" width="331" height="60"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="add_button" destination="Sjf-K0-N11" id="RQ2-ex-iEn"/>
-                        <outlet property="applied_vaccine_attr" destination="m5A-2c-vb7" id="VyJ-g6-6Fh"/>
+                        <outlet property="applied_vaccine_attr" destination="XCf-Js-1M2" id="hHR-yL-NJq"/>
                         <outlet property="birth_date_attr" destination="UkU-xc-ema" id="OEm-pQ-OIt"/>
-                        <outlet property="city_attr" destination="5sd-IL-VV3" id="5xR-Uu-hqv"/>
-                        <outlet property="gender_attr" destination="m6n-c7-9ZR" id="i7a-5n-uas"/>
+                        <outlet property="city_attr" destination="uNZ-3S-ktM" id="xUc-Vf-7OJ"/>
+                        <outlet property="gender_attr" destination="lKw-8b-Tka" id="2Qh-k3-tqg"/>
                         <outlet property="name_surname_attr" destination="i4E-jz-uIi" id="rpj-LP-Ruu"/>
                         <outlet property="pcr_positive_cases_and_symproms_attr" destination="fpX-vW-jbd" id="5kF-yg-UK1"/>
                         <outlet property="side_effect_vaccination_attr" destination="PHj-7G-yHS" id="Iio-Eg-aIk"/>
