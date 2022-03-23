@@ -60,11 +60,6 @@ public class AppModel {
         sleep();
     }
 
-    /**
-     * Write name into survey. If name is null, clear the field.
-     *
-     * @param name name to write
-     */
     public void enterName(String name) {
         if (name == null) {
             getNameField().clear();
@@ -73,11 +68,7 @@ public class AppModel {
         sleep();
     }
 
-    /**
-     * Write surname into survey. If surname is null, clear the field.
-     *
-     * @param surname surname to write
-     */
+
     public void enterSurname(String surname) {
         if (surname == null) {
             getSurnameField().clear();
@@ -87,11 +78,6 @@ public class AppModel {
         sleep();
     }
 
-    /**
-     * Write birth date into survey
-     *
-     * @param bdate birth date to write
-     */
     public void enterBirthDate(String bdate) {
         // Due to Appium limitations, cannot test actual bdate value
         driver.findElement(BIRTH_DATE).click();
@@ -99,22 +85,13 @@ public class AppModel {
         sleep();
     }
 
-    /**
-     * Write gender into survey
-     *
-     * @param gender gender to write
-     */
     public void enterGender(String gender) {
         driver.findElement(GENDER).click();
         driver.findElementByAccessibilityId(gender).click();
         sleep();
     }
 
-    /**
-     * Write city into survey. If city is null, clear the field.
-     *
-     * @param city city to write
-     */
+
     public void enterCity(String city) {
         if (city == null) {
             getCityField().clear();
@@ -124,31 +101,17 @@ public class AppModel {
         sleep();
     }
 
-    /**
-     * Write vaccine type into survey
-     *
-     * @param type vaccine type to write
-     */
     public void enterVaccineType(String type) {
         driver.findElement(VACCINE_TYPE).click();
         driver.findElementByAccessibilityId(type).click();
         sleep();
     }
 
-    /**
-     * Toggle side effect in survey
-     *
-     * @param sideEffect side effect to toggle
-     */
     public void toggleSideEffect(String sideEffect) {
         toggleSideEffects(List.of(sideEffect));
     }
 
-    /**
-     * Toggle a list of side effect in survey
-     *
-     * @param sideEffects side effects to toggle
-     */
+
     public void toggleSideEffects(List<String> sideEffects) {
         if (sideEffects.isEmpty())
             return;
@@ -159,17 +122,7 @@ public class AppModel {
         sleep();
     }
 
-    /**
-     * Fills form with the given data
-     *
-     * @param name
-     * @param surname
-     * @param bdate
-     * @param city
-     * @param gender
-     * @param vaccine
-     * @param sideEffects
-     */
+
     public void fillForm(String name, String surname, String bdate, String city, String gender, String vaccine,
                          List<String> sideEffects) {
         enterName(name);
@@ -181,68 +134,48 @@ public class AppModel {
         toggleSideEffects(sideEffects);
     }
 
-    /**
-     * @return Currently entered name value in the survey
-     */
+
     public String getName() {
         return getNameField().getText();
     }
 
-    /**
-     * @return Currently entered surname value in the survey
-     */
+
     public String getSurname() {
         return getSurnameField().getText();
     }
 
-    /**
-     * @return Currently entered city value in the survey
-     */
+
     public String getCity() {
         return getCityField().getText();
     }
 
-    /**
-     * @return Currently entered birth date value in the survey
-     */
+
     public String getBirthDate() {
         return driver.findElement(BIRTH_DATE).findElement(By.xpath("//android.widget.TextView")).getText();
     }
 
-    /**
-     * @return Currently entered gender value in the survey
-     */
+
     public String getGender() {
         return driver.findElement(GENDER).findElement(By.xpath("//android.widget.TextView[@text!='Gender']")).getText();
     }
 
-    /**
-     * @return Currently entered vaccine type value in the survey
-     */
+
     public String getVaccine() {
         return driver.findElement(VACCINE_TYPE)
                 .findElement(By.xpath("//android.widget.TextView[@text!='Vaccine Type']")).getText();
     }
 
-    /**
-     * @return Currently entered side effects value in the survey
-     */
+
     public String getSideEffects() {
         return driver.findElement(SIDE_EFFECTS)
                 .findElement(By.xpath("//android.widget.TextView[@text!='Side Effects']")).getText();
     }
 
-    /**
-     * @return true if the home page is shown and survey start button is visible,
-     * false otherwise
-     */
     public boolean canStartSurvey() {
         return doesExist(START_SURVEY);
     }
 
-    /**
-     * @return true if the survey submit button is visible, false otherwise
-     */
+    
     public boolean isSubmitButtonVisible() {
         try {
             WebElement btn = driver.findElement(SUBMIT);
@@ -252,32 +185,21 @@ public class AppModel {
         }
     }
 
-    /**
-     * @return true if the survey submitted page is shown and go home button is
-     * visible
-     */
     public boolean isSubmitted() {
         return doesExist(SUBMITTED_GO_HOME);
     }
 
-    /**
-     * Tries going back from the survey screen.
-     */
+
     public void goBack() {
         driver.findElement(GO_BACK).click();
         sleep();
     }
 
-    /**
-     * Tries going home from the survey submitted page.
-     */
     public void goHomeAfterSurvey() {
         driver.findElement(SUBMITTED_GO_HOME).click();
     }
 
-    /**
-     * Tries going to home screen.
-     */
+
     public void goHome() {
         if (doesExist(GO_BACK)) {
             goBack();
@@ -287,16 +209,12 @@ public class AppModel {
         sleep();
     }
 
-    /**
-     * Requests to edit the currently submitted response.
-     */
+
     public void editResponse() {
         driver.findElement(EDIT_RESPONSE).click();
     }
 
-    /**
-     * Sleep to make sure UI keeps up.
-     */
+
     private void sleep() {
         try {
             if ("ios".equals(driver.getPlatformName())) {
@@ -311,41 +229,28 @@ public class AppModel {
         }
     }
 
-    /**
-     * Lose focus of the current element by clicking aside.
-     */
+
     private void loseFocus() {
         new TouchAction<>(driver).press(PointOption.point(0, 100))
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).release().perform();
     }
 
-    /**
-     * @param selector
-     * @return true if element exists, false otherwise
-     */
     private boolean doesExist(By selector) {
         return !driver.findElements(selector).isEmpty();
     }
 
-    /**
-     * @return the survey name input element
-     */
+
     private WebElement getNameField() {
         List<WebElement> list = driver.findElements(NAME);
         return list.get(list.size() - 1);
     }
 
-    /**
-     * @return the survey surname input element
-     */
     private WebElement getSurnameField() {
         List<WebElement> list = driver.findElements(SURNAME);
         return list.get(list.size() - 1);
     }
 
-    /**
-     * @return the survey city input element
-     */
+
     private WebElement getCityField() {
         List<WebElement> list = driver.findElements(CITY);
         return list.get(list.size() - 1);
