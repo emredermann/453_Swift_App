@@ -34,20 +34,18 @@ public class TestSet3 implements TestSet {
     private boolean test() {
         try {
             AppModel model = new AppModel(driver);
-            model.startSurvey();
 
             // Filling all required fields
             String name = "Test";
             String surname = "Test";
-            String bdate = "28/02/2021";
-            String city = "Batman";
+            String bdate = "27/03/2021";
+            String city = "Ankara";
             String gender = "Male";
-            String vaccine = "AZD1222";
+            String vaccine = "BIONTECH";
             String sideEffect = "Pain";
             model.fillForm(name, surname, bdate, city, gender, vaccine, List.of(sideEffect));
             model.submitSurvey();
 
-            model.editResponse();
 
             return name.equals(model.getName()) && surname.equals(model.getSurname())
                     && bdate.equals(model.getBirthDate()) && city.equals(model.getCity())

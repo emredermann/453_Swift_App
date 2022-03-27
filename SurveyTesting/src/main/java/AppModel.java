@@ -1,10 +1,7 @@
 import java.time.Duration;
 import java.util.List;
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.TouchAction;
@@ -14,12 +11,12 @@ import io.appium.java_client.touch.offset.PointOption;
 
 
 public class AppModel {
-    private static final By START_SURVEY = MobileBy.AccessibilityId("formInitBtn");
+   // private static final By START_SURVEY = MobileBy.AccessibilityId("formInitBtn");
     private static final By SUBMIT = MobileBy.AccessibilityId("submissionBtn");
 
-    private static final By GO_BACK = MobileBy.AccessibilityId("navBtnForm");
-    private static final By SUBMITTED_GO_HOME = MobileBy.AccessibilityId("homeNavBtn");
-    private static final By EDIT_RESPONSE = MobileBy.AccessibilityId("formNavBtn");
+   // private static final By GO_BACK = MobileBy.AccessibilityId("navBtnForm");
+   // private static final By SUBMITTED_GO_HOME = MobileBy.AccessibilityId("homeNavBtn");
+   // private static final By EDIT_RESPONSE = MobileBy.AccessibilityId("formNavBtn");
 
     private static final By NAME = MobileBy.AccessibilityId("nameInput");
     private static final By SURNAME = MobileBy.AccessibilityId("surnameInput");
@@ -28,6 +25,7 @@ public class AppModel {
     private static final By GENDER = MobileBy.AccessibilityId("genderSelection");
     private static final By VACCINE_TYPE = MobileBy.AccessibilityId("vaccineSelection");
     private static final By SIDE_EFFECTS = MobileBy.AccessibilityId("sideEffectSelection");
+
 
     private static final By RANDOM_DATE_ANDROID = By.xpath("/hierarchy/android.widget.FrameLayout/"
             + "android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/"
@@ -48,11 +46,6 @@ public class AppModel {
         }
     }
 
-
-    public void startSurvey() {
-        driver.findElement(START_SURVEY).click();
-        sleep();
-    }
 
 
     public void submitSurvey() {
@@ -79,7 +72,6 @@ public class AppModel {
     }
 
     public void enterBirthDate(String bdate) {
-        // Due to Appium limitations, cannot test actual bdate value
         driver.findElement(BIRTH_DATE).click();
         driver.findElement("ios".equals(driver.getPlatformName()) ? RANDOM_DATE_IOS : RANDOM_DATE_ANDROID).click();
         sleep();

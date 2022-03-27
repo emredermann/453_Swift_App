@@ -26,7 +26,7 @@ public class Runner {
 		capabilities.setCapability("automationName", "XCUITest");
 		capabilities.setCapability("deviceName", "iPhone simulator");
 		capabilities.setCapability("udid", "enter here");
-		capabilities.setCapability("platformVersion", "14.4");
+		//capabilities.setCapability("platformVersion", "14.4");
 
         MobileDriver<WebElement> driver = new IOSDriver<>(new URL(APPIUM_SERVER), capabilities);
 

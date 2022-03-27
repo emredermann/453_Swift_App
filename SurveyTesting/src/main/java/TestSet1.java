@@ -21,11 +21,7 @@ public class TestSet1 implements TestSet {
     @Getter
     private TestSetResult result;
 
-    /**
-     * Creates this test set by fetching its data from the JSON resource file.
-     *
-     * @param driver The driver to use for this test
-     */
+
     public TestSet1(MobileDriver<WebElement> driver) {
         JSONTokener tokener = new JSONTokener(getClass().getResourceAsStream("TestCaseOneData.json"));
         data = new JSONArray(tokener);
@@ -43,12 +39,6 @@ public class TestSet1 implements TestSet {
         return result;
     }
 
-    /**
-     * Runs a test case specified by the JSON object.
-     *
-     * @param data JSON data object
-     * @return true if the test succeeds, false otherwise
-     */
     private boolean run(JSONObject data) {
         String caseResult;
         try {

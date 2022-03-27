@@ -36,10 +36,9 @@ public class TestSet2 implements TestSet {
         try {
 
             AppModel model = new AppModel(driver);
-            model.startSurvey();
 
             // Filling all required fields
-            model.fillForm("Test", "Test", "01.01.2001", "Batman", "Male", "AZD1222", List.of());
+            model.fillForm("Test", "Test", "01.10.2022", "Ankara", "Male", "Check", List.of());
             if (!model.isSubmitButtonVisible()) {
                 return false;
             }
@@ -60,9 +59,9 @@ public class TestSet2 implements TestSet {
             if (model.isSubmitButtonVisible()) {
                 return false;
             }
-            model.enterCity("Adana");
+            model.enterCity("Izmir");
 
-            model.toggleSideEffects(List.of("Headache", "Swelling", "Pain"));
+            model.toggleSideEffects(List.of("Headache", "swell"));
             return model.isSubmitButtonVisible();
         } catch (Exception e) {
             return false;
