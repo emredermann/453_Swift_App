@@ -25,7 +25,6 @@ public class AppModel {
     private static final By SIDE_EFFECTS = MobileBy.AccessibilityId("side_effect_vaccination_attr");
     private static final By SYMPTOMS = MobileBy.AccessibilityId("pcr_positive_cases_and_symproms_attr");
 
-    private static final int SLEEP_AMOUNT = 250;
 
     private IOSDriver driver;
 
@@ -33,9 +32,8 @@ public class AppModel {
         this.driver = driver;
     }
 
-    public void submitSurvey() throws InterruptedException {
+    public void submitSurvey()  {
         driver.findElement(SUBMIT).click();
-        sleep(100);
     }
 
     public void enterName(String name) {
@@ -140,13 +138,8 @@ public class AppModel {
             return false;
         }
     }
-    private void loseFocus() {
-        new TouchAction<>(driver).press(PointOption.point(0, 100))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).release().perform();
-    }
-    private boolean doesExist(By selector) {
-        return !driver.findElements(selector).isEmpty();
-    }
+
+
     private WebElement getSurnameField() {
             List<WebElement> list = driver.findElements(SURNAME);
             return list.get(list.size() - 1);
