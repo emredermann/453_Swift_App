@@ -69,6 +69,33 @@
                                     <action selector="side_effect_vaccination:" destination="BYZ-38-t0r" eventType="editingChanged" id="YYG-ZL-ujv"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please fill text field." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CvN-vR-jIU">
+                                <rect key="frame" x="43" y="481" width="295" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="side_effect_vaccination:" destination="BYZ-38-t0r" eventType="editingChanged" id="kPk-xB-FLR"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please fill text field." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wnn-7n-7Dw">
+                                <rect key="frame" x="49" y="384" width="295" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="side_effect_vaccination:" destination="BYZ-38-t0r" eventType="editingChanged" id="7f3-8y-4jX"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please fill text field." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bAA-e3-GVb">
+                                <rect key="frame" x="49" y="268" width="295" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="side_effect_vaccination:" destination="BYZ-38-t0r" eventType="editingChanged" id="RPE-xE-kGI"/>
+                                </connections>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="middleTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ub-RO-Jo2">
                                 <rect key="frame" x="49" y="622" width="317" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -105,35 +132,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UkU-xc-ema">
-                                <rect key="frame" x="92" y="178" width="111" height="51"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please fill text field." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uzz-zm-VP7">
+                                <rect key="frame" x="49" y="178" width="295" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="birth_date:" destination="BYZ-38-t0r" eventType="valueChanged" id="Vvq-lF-b53"/>
+                                    <action selector="birth_date:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="uxE-Vs-cbE"/>
+                                    <action selector="side_effect_vaccination:" destination="BYZ-38-t0r" eventType="editingChanged" id="Vdh-pT-VUG"/>
                                 </connections>
-                            </datePicker>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lKw-8b-Tka">
-                                <rect key="frame" x="35" y="384" width="331" height="60"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XCf-Js-1M2">
-                                <rect key="frame" x="37" y="481" width="331" height="60"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uNZ-3S-ktM">
-                                <rect key="frame" x="37" y="268" width="331" height="60"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="add_button" destination="Sjf-K0-N11" id="RQ2-ex-iEn"/>
-                        <outlet property="applied_vaccine_attr" destination="XCf-Js-1M2" id="hHR-yL-NJq"/>
-                        <outlet property="birth_date_attr" destination="UkU-xc-ema" id="OEm-pQ-OIt"/>
-                        <outlet property="city_attr" destination="uNZ-3S-ktM" id="xUc-Vf-7OJ"/>
-                        <outlet property="gender_attr" destination="lKw-8b-Tka" id="2Qh-k3-tqg"/>
+                        <outlet property="applied_vaccine_attr" destination="CvN-vR-jIU" id="yiy-mk-zDQ"/>
+                        <outlet property="birth_date_attr" destination="uzz-zm-VP7" id="WOV-Gh-h9E"/>
+                        <outlet property="city_attr" destination="bAA-e3-GVb" id="Rf9-w0-ln5"/>
+                        <outlet property="gender_attr" destination="Wnn-7n-7Dw" id="ZfP-U4-G3W"/>
                         <outlet property="name_surname_attr" destination="i4E-jz-uIi" id="rpj-LP-Ruu"/>
                         <outlet property="pcr_positive_cases_and_symproms_attr" destination="fpX-vW-jbd" id="5kF-yg-UK1"/>
                         <outlet property="side_effect_vaccination_attr" destination="PHj-7G-yHS" id="Iio-Eg-aIk"/>
