@@ -78,24 +78,31 @@ class ViewController: UIViewController {
 
         }
         flag = false
-        
+    }
+    
+    @IBAction func name_attr(_ sender: UITextField) {
+        if sender.text!.count < 60
+            {
+                if sender.text?.rangeOfCharacter(from: characterset.inverted) != nil {
+                check_visibility();
+            }else{
+                name_attr = sender;
+                check_visibility();
+            }
+        }
     }
     @IBAction func surname_attr(_ sender: UITextField) {
-        if sender.text?.rangeOfCharacter(from: characterset.inverted) != nil {
-            check_visibility();
-        }else{
-            surname_attr = sender;
-            check_visibility();
+        if sender.text!.count < 60
+            {
+                if sender.text?.rangeOfCharacter(from: characterset.inverted) != nil {
+                check_visibility();
+            }else{
+                surname_attr = sender;
+                check_visibility();
+            }
         }
     }
-    @IBAction func name_attr(_ sender: UITextField) {
-        if sender.text?.rangeOfCharacter(from: characterset.inverted) != nil {
-            check_visibility();
-        }else{
-            name_attr = sender;
-            check_visibility();
-        }
-    }
+
     @IBAction func applied_vaccine(_ sender: UITextField) {
         if sender.text?.rangeOfCharacter(from: characterset.inverted) != nil {
             check_visibility();
@@ -105,7 +112,6 @@ class ViewController: UIViewController {
         }
     }
     @IBAction  func birth_date(_ sender: UITextField) {
-        
         var flag = true
         for x in sender.text!.unicodeScalars{
             if(characterset.contains(x)){
