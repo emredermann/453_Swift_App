@@ -22,10 +22,6 @@ public class AppModel {
         this.driver = driver;
     }
 
-    public void submitSurvey()  {
-        driver.findElement(SUBMIT).click();
-    }
-
     public void enterName(String name) {
         if (name == null) {
             getNameField().clear();
