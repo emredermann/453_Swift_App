@@ -1,5 +1,7 @@
 import java.time.Duration;
 import java.util.List;
+
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import io.appium.java_client.MobileBy;
@@ -8,6 +10,7 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
+import static java.lang.Thread.sleep;
 
 
 public class AppModel {
@@ -28,14 +31,11 @@ public class AppModel {
 
     public AppModel(IOSDriver driver) {
         this.driver = driver;
-        if (!canStartSurvey()) {
-            goHome();
-        }
     }
 
-    public void submitSurvey() {
+    public void submitSurvey() throws InterruptedException {
         driver.findElement(SUBMIT).click();
-        sleep();
+        sleep(100);
     }
 
     public void enterName(String name) {
@@ -43,26 +43,25 @@ public class AppModel {
             getNameField().clear();
         } else
             getNameField().sendKeys(name);
-        sleep();
+
     }
 
 
-    public void enterSurname(String surname) {
+    public void enterSurname(String surname){
         if (surname == null) {
             getSurnameField().clear();
         } else {
             getSurnameField().sendKeys(surname);
         }
-        sleep();
+
     }
 
-    public void enterBirthDate(String bdate) {
+    public void enterBirthDate(String bdate){
        if (bdate == null) {
             getBirthDate().clear();
         } else {
             getBirthDate().sendKeys(bdate);
         }
-        sleep();
     }
 
     public void enterGender(String gender) {
@@ -71,7 +70,6 @@ public class AppModel {
         } else {
             getGenderField().sendKeys(gender);
         }
-        sleep();
     }
 
 
@@ -81,16 +79,14 @@ public class AppModel {
         } else {
             getCityField().sendKeys(city);
         }
-        sleep();
     }
 
-    public void enterVaccineType(String vaccineType) {
+    public void enterVaccineType(String vaccineType){
         if (vaccineType == null) {
             getVaccineType().clear();
         } else {
             getVaccineType().sendKeys(vaccineType);
         }
-        sleep();
     }
     public void enterSymptoms(String symptoms) {
         if (symptoms == null) {
@@ -98,7 +94,6 @@ public class AppModel {
         } else {
             getSymptoms().sendKeys(symptoms);
         }
-        sleep();
     }
 
     public void toggleSideEffects(String sideEffects) {
@@ -107,7 +102,6 @@ public class AppModel {
         } else {
             getSideEffects().sendKeys(sideEffects);
         }
-        sleep();
     }
 
 
@@ -157,6 +151,10 @@ public class AppModel {
             List<WebElement> list = driver.findElements(SURNAME);
             return list.get(list.size() - 1);
         }
+    private WebElement getSideEffects() {
+        List<WebElement> list = driver.findElements(SIDE_EFFECTS);
+        return list.get(list.size() - 1);
+    }
     private WebElement getNameField() {
             List<WebElement> list = driver.findElements(NAME);
             return list.get(list.size() - 1);
@@ -177,7 +175,7 @@ public class AppModel {
             List<WebElement> list = driver.findElements(VACCINE_TYPE);
             return list.get(list.size() - 1);
         }
-    private WebElement getBirthDate()) {
+    private WebElement getBirthDate() {
             List<WebElement> list = driver.findElements(BIRTH_DATE);
             return list.get(list.size() - 1);
         }
