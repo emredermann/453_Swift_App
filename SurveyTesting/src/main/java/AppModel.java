@@ -11,42 +11,27 @@ import io.appium.java_client.touch.offset.PointOption;
 
 
 public class AppModel {
-   // private static final By START_SURVEY = MobileBy.AccessibilityId("formInitBtn");
-    private static final By SUBMIT = MobileBy.AccessibilityId("submissionBtn");
 
-   // private static final By GO_BACK = MobileBy.AccessibilityId("navBtnForm");
-   // private static final By SUBMITTED_GO_HOME = MobileBy.AccessibilityId("homeNavBtn");
-   // private static final By EDIT_RESPONSE = MobileBy.AccessibilityId("formNavBtn");
-
-    private static final By NAME = MobileBy.AccessibilityId("nameInput");
-    private static final By SURNAME = MobileBy.AccessibilityId("surnameInput");
-    private static final By BIRTH_DATE = MobileBy.AccessibilityId("birthDateInput");
-    private static final By CITY = MobileBy.AccessibilityId("cityInput");
-    private static final By GENDER = MobileBy.AccessibilityId("genderSelection");
-    private static final By VACCINE_TYPE = MobileBy.AccessibilityId("vaccineSelection");
-    private static final By SIDE_EFFECTS = MobileBy.AccessibilityId("sideEffectSelection");
-
-
-    private static final By RANDOM_DATE_ANDROID = By.xpath("/hierarchy/android.widget.FrameLayout/"
-            + "android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/"
-            + "android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/"
-            + "android.widget.FrameLayout/android.view.ViewGroup[3]/android.view.ViewGroup/"
-            + "android.view.ViewGroup/android.view.ViewGroup[5]/android.view.ViewGroup[1]");
-    private static final By RANDOM_DATE_IOS = By.xpath("(//XCUIElementTypeOther[@name=\"28\"])[1]");
+    private static final By SUBMIT = MobileBy.AccessibilityId("add_button");
+    private static final By NAME = MobileBy.AccessibilityId("name_attr");
+    private static final By SURNAME = MobileBy.AccessibilityId("surname_attr");
+    private static final By BIRTH_DATE = MobileBy.AccessibilityId("birth_date_attr");
+    private static final By CITY = MobileBy.AccessibilityId("city_attr");
+    private static final By GENDER = MobileBy.AccessibilityId("gender_attr");
+    private static final By VACCINE_TYPE = MobileBy.AccessibilityId("applied_vaccine_attr");
+    private static final By SIDE_EFFECTS = MobileBy.AccessibilityId("side_effect_vaccination_attr");
+    private static final By SYMPTOMS = MobileBy.AccessibilityId("pcr_positive_cases_and_symproms_attr");
 
     private static final int SLEEP_AMOUNT = 250;
 
-    private MobileDriver<WebElement> driver;
+    private IOSDriver driver;
 
-    public AppModel(MobileDriver<WebElement> driver) {
+    public AppModel(IOSDriver driver) {
         this.driver = driver;
-
         if (!canStartSurvey()) {
             goHome();
         }
     }
-
-
 
     public void submitSurvey() {
         driver.findElement(SUBMIT).click();
@@ -72,14 +57,20 @@ public class AppModel {
     }
 
     public void enterBirthDate(String bdate) {
-        driver.findElement(BIRTH_DATE).click();
-        driver.findElement("ios".equals(driver.getPlatformName()) ? RANDOM_DATE_IOS : RANDOM_DATE_ANDROID).click();
+       if (bdate == null) {
+            getBirthDate().clear();
+        } else {
+            getBirthDate().sendKeys(bdate);
+        }
         sleep();
     }
 
     public void enterGender(String gender) {
-        driver.findElement(GENDER).click();
-        driver.findElementByAccessibilityId(gender).click();
+        if (gender == null) {
+            getGenderField().clear();
+        } else {
+            getGenderField().sendKeys(gender);
+        }
         sleep();
     }
 
@@ -93,36 +84,42 @@ public class AppModel {
         sleep();
     }
 
-    public void enterVaccineType(String type) {
-        driver.findElement(VACCINE_TYPE).click();
-        driver.findElementByAccessibilityId(type).click();
+    public void enterVaccineType(String vaccineType) {
+        if (vaccineType == null) {
+            getVaccineType().clear();
+        } else {
+            getVaccineType().sendKeys(vaccineType);
+        }
+        sleep();
+    }
+    public void enterSymptoms(String symptoms) {
+        if (symptoms == null) {
+            getSymptoms().clear();
+        } else {
+            getSymptoms().sendKeys(symptoms);
+        }
         sleep();
     }
 
-    public void toggleSideEffect(String sideEffect) {
-        toggleSideEffects(List.of(sideEffect));
-    }
-
-
-    public void toggleSideEffects(List<String> sideEffects) {
-        if (sideEffects.isEmpty())
-            return;
-
-        driver.findElement(SIDE_EFFECTS).click();
-        sideEffects.forEach(sideEffect -> driver.findElementByAccessibilityId(sideEffect).click());
-        loseFocus();
+    public void toggleSideEffects(String sideEffects) {
+        if (sideEffects == null) {
+            getSideEffects().clear();
+        } else {
+            getSideEffects().sendKeys(sideEffects);
+        }
         sleep();
     }
 
 
     public void fillForm(String name, String surname, String bdate, String city, String gender, String vaccine,
-                         List<String> sideEffects) {
+                         String sideEffects,String symptoms) {
         enterName(name);
         enterSurname(surname);
         enterBirthDate(bdate);
         enterCity(city);
         enterGender(gender);
         enterVaccineType(vaccine);
+        enterSymptoms(symptoms);
         toggleSideEffects(sideEffects);
     }
 
@@ -140,33 +137,6 @@ public class AppModel {
     public String getCity() {
         return getCityField().getText();
     }
-
-
-    public String getBirthDate() {
-        return driver.findElement(BIRTH_DATE).findElement(By.xpath("//android.widget.TextView")).getText();
-    }
-
-
-    public String getGender() {
-        return driver.findElement(GENDER).findElement(By.xpath("//android.widget.TextView[@text!='Gender']")).getText();
-    }
-
-
-    public String getVaccine() {
-        return driver.findElement(VACCINE_TYPE)
-                .findElement(By.xpath("//android.widget.TextView[@text!='Vaccine Type']")).getText();
-    }
-
-
-    public String getSideEffects() {
-        return driver.findElement(SIDE_EFFECTS)
-                .findElement(By.xpath("//android.widget.TextView[@text!='Side Effects']")).getText();
-    }
-
-    public boolean canStartSurvey() {
-        return doesExist(START_SURVEY);
-    }
-
     
     public boolean isSubmitButtonVisible() {
         try {
@@ -176,75 +146,39 @@ public class AppModel {
             return false;
         }
     }
-
-    public boolean isSubmitted() {
-        return doesExist(SUBMITTED_GO_HOME);
-    }
-
-
-    public void goBack() {
-        driver.findElement(GO_BACK).click();
-        sleep();
-    }
-
-    public void goHomeAfterSurvey() {
-        driver.findElement(SUBMITTED_GO_HOME).click();
-    }
-
-
-    public void goHome() {
-        if (doesExist(GO_BACK)) {
-            goBack();
-        } else {
-            goHomeAfterSurvey();
-        }
-        sleep();
-    }
-
-
-    public void editResponse() {
-        driver.findElement(EDIT_RESPONSE).click();
-    }
-
-
-    private void sleep() {
-        try {
-            if ("ios".equals(driver.getPlatformName())) {
-                Thread.sleep(SLEEP_AMOUNT / 2);
-                loseFocus();
-                Thread.sleep(SLEEP_AMOUNT / 2);
-            } else {
-                Thread.sleep(SLEEP_AMOUNT);
-            }
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-    }
-
-
     private void loseFocus() {
         new TouchAction<>(driver).press(PointOption.point(0, 100))
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).release().perform();
     }
-
     private boolean doesExist(By selector) {
         return !driver.findElements(selector).isEmpty();
     }
-
-
-    private WebElement getNameField() {
-        List<WebElement> list = driver.findElements(NAME);
-        return list.get(list.size() - 1);
-    }
-
     private WebElement getSurnameField() {
-        List<WebElement> list = driver.findElements(SURNAME);
-        return list.get(list.size() - 1);
-    }
-
-
+            List<WebElement> list = driver.findElements(SURNAME);
+            return list.get(list.size() - 1);
+        }
+    private WebElement getNameField() {
+            List<WebElement> list = driver.findElements(NAME);
+            return list.get(list.size() - 1);
+        }
+    private WebElement getSymptoms() {
+            List<WebElement> list = driver.findElements(SYMPTOMS);
+            return list.get(list.size() - 1);
+        }
+    private WebElement getGenderField() {
+            List<WebElement> list = driver.findElements(GENDER);
+            return list.get(list.size() - 1);
+        }
     private WebElement getCityField() {
-        List<WebElement> list = driver.findElements(CITY);
-        return list.get(list.size() - 1);
-    }
+            List<WebElement> list = driver.findElements(CITY);
+            return list.get(list.size() - 1);
+        }
+    private WebElement getVaccineType() {
+            List<WebElement> list = driver.findElements(VACCINE_TYPE);
+            return list.get(list.size() - 1);
+        }
+    private WebElement getBirthDate()) {
+            List<WebElement> list = driver.findElements(BIRTH_DATE);
+            return list.get(list.size() - 1);
+        }
 }

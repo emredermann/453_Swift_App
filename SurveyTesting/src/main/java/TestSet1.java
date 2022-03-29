@@ -14,15 +14,16 @@ import lombok.Getter;
  * inputs. In particular, tests valid values, and invalid values for each input
  * field.
  */
-public class TestSet1 implements TestSet {
+public class TestSet1  {
+
     private final JSONArray data;
-    private final MobileDriver<WebElement> driver;
+    private final IOSDriver driver;
 
     @Getter
     private TestSetResult result;
 
 
-    public TestSet1(MobileDriver<WebElement> driver) {
+    public TestSet1(IOSDriver driver) {
         JSONTokener tokener = new JSONTokener(getClass().getResourceAsStream("TestCaseOneData.json"));
         data = new JSONArray(tokener);
         this.driver = driver;
@@ -44,8 +45,7 @@ public class TestSet1 implements TestSet {
         try {
             AppModel model = new AppModel(driver);
             model.startSurvey();
-
-            List<String> sideEffects = data.getJSONArray("side_effects").toList().stream().map(Object::toString)
+            String sideEffect = data.getJSONArray("side_effects").toList().stream().map(Object::toString)
                     .collect(Collectors.toList());
             model.fillForm(data.getString("name"), data.getString("surname"), data.getString("birthdate"),
                     data.getString("city"), data.getString("gender"), data.getString("vaccine"), sideEffects);

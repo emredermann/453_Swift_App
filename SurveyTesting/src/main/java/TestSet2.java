@@ -9,8 +9,8 @@ import lombok.Getter;
  * Second test set. Tests whether the survey submit button appears only after
  * all the fields are filled, and is not visible any other time.
  */
-public class TestSet2 implements TestSet {
-    private final MobileDriver<WebElement> driver;
+public class TestSet2 {
+    private final IOSDriver driver;
 
     @Getter
     private TestSetResult result;
@@ -20,7 +20,7 @@ public class TestSet2 implements TestSet {
      *
      * @param driver The driver to use for this test
      */
-    public TestSet2(MobileDriver<WebElement> driver) {
+    public TestSet2(IOSDriver driver) {
         this.driver = driver;
         result = new TestSetResult(0, 1);
     }
