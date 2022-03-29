@@ -1,17 +1,13 @@
-import io.appium.java_client.MobileDriver;
 import io.appium.java_client.ios.IOSDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class Runner {
     private static final String APPIUM_SERVER = "http://localhost:4723/wd/hub";
 
-    public static void main(String[] args) throws URISyntaxException, MalformedURLException {
+    public static void main(String[] args) throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("automationName", "XCUITest");
@@ -31,6 +27,5 @@ public class Runner {
         new TestSet(driver).run();
 
         driver.quit();
-        System.out.println();
     }
 }

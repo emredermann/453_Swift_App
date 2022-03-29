@@ -1,11 +1,4 @@
-import java.util.List;
-
 import io.appium.java_client.ios.IOSDriver;
-import org.openqa.selenium.WebElement;
-
-import io.appium.java_client.MobileDriver;
-import lombok.Getter;
-
 
 public class TestSet {
     private final IOSDriver driver;
