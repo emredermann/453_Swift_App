@@ -89,6 +89,8 @@ class ViewController: UIViewController {
                 name_attr = sender;
                 check_visibility();
             }
+        }else{
+            print("Inappropriate input size for name");
         }
     }
     @IBAction func surname_attr(_ sender: UITextField) {
@@ -100,6 +102,8 @@ class ViewController: UIViewController {
                 surname_attr = sender;
                 check_visibility();
             }
+        }else{
+            print("Inappropriate input size for surname");
         }
     }
 
